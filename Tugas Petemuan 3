@@ -1,0 +1,58 @@
+// Definisi kelas Mahasiswa
+class Mahasiswa {
+    // Konstruktor kelas untuk inisialisasi objek
+    constructor(nama, nim, kegiatan) {
+        this.nama = nama;
+        this.nim = nim;
+        this.kegiatan = kegiatan;
+    }
+
+    // Metode untuk mendapatkan nama mahasiswa
+    getNama() {
+        return this.nama;
+    }
+
+    // Metode untuk mengubah nama mahasiswa
+    setNama(nama) {
+        this.nama = nama;
+    }
+
+    // Metode untuk menampilkan aktivitas belajar
+    belajar() {
+        console.log(this.nama + " sedang ujian.");
+    }
+}
+
+// Implementasi penggunaan kelas Mahasiswa
+const main = () => {
+    // Membuat objek Mahasiswa
+    const mahasiswa1 = new Mahasiswa("Dino", "11021999", "sedang ujian");
+    const mahasiswa2 = new Mahasiswa("Joshua", "30121995", "Sedang ujian");
+
+    // Menggunakan metode objek
+    mahasiswa1.belajar();  // Output: Dino sedang ujia.
+    mahasiswa2.belajar();  // Output: Joshuasedang main ujian.
+};
+
+// Menjalankan fungsi main
+main();
+
+# Definisi kelas Mahasiswa
+class Mahasiswa:
+    # Konstruktor kelas untuk inisialisasi objek
+    def __init__(self, nama, nim, jurusan):
+        self.nama = nama
+        self.nim = nim
+        self.jurusan = jurusan
+
+    # Metode untuk menampilkan aktivitas belajar
+    def belajar(self):
+        print(f"{self.nama} sedang ujian.")
+
+# Implementasi penggunaan kelas Mahasiswa
+mahasiswa1 = Mahasiswa("Dino", "11021999", "Manajemen")
+mahasiswa2 = Mahasiswa("Joshua", "30121995", "Kewirausahaan")
+
+# Menggunakan metode objek
+mahasiswa1.belajar()  # Output: Dino sedang ujian.
+mahasiswa2.belajar()  # Output: Joshua sedang ujian.
