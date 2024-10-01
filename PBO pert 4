@@ -1,0 +1,66 @@
+// Kelas Mahasiswa (Model)
+class Mahasiswa {
+    constructor(nama, nim, nilai) {
+        this.nama = nama;  
+        this.nim = nim;    
+        let _nilai = nilai; 
+
+        // Getter untuk nilai
+        this.getNilai = () => {
+            return _nilai;
+        };
+
+        // Setter untuk nilai dengan validasi
+        this.setNilai = (nilaiBaru) => {
+            if (nilaiBaru >= 0 && nilaiBaru <= 100) {
+                _nilai = nilaiBaru;
+            } else {
+                console.log("Nilai harus antara 0 dan 100");
+            }
+        };
+    }
+}
+
+// Kelas MahasiswaView (View)
+class MahasiswaView {
+    render(mahasiswa) {
+        return `
+Mahasiswa:
+Nama: ${mahasiswa.nama}
+NIM: ${mahasiswa.nim}
+Nilai: ${mahasiswa.getNilai()}
+        `;
+    }
+}
+
+// Kelas MahasiswaController (Controller)
+class MahasiswaController {
+    constructor(model, view) {
+        this.model = model;
+        this.view = view;
+    }
+
+    tampilkanMahasiswa() {
+        // Membuat objek Mahasiswa
+        const mahasiswa = new this.model("Siti Alifya ", "2023011110033", 100);
+        const output = this.view.render(mahasiswa);
+        console.log(output);
+    }
+
+    ubahNilai(nama, nim, nilaiBaru) {
+        // Membuat objek Mahasiswa
+        const mahasiswa = new this.model(nama, nim, 0);
+        mahasiswa.setNilai(nilaiBaru);
+        console.log(`${nama} memiliki nilai baru: ${mahasiswa.getNilai()}`);
+    }
+}
+
+// Inisialisasi objek View dan Controller
+const mahasiswaView = new MahasiswaView();
+const mahasiswaController = new MahasiswaController(Mahasiswa, mahasiswaView); 
+
+// Menampilkan data Mahasiswa
+mahasiswaController.tampilkanMahasiswa();
+
+// Mengubah nilai mahasiswa
+mahasiswaController.ubahNilai("Siti Alifya ", "202301110010", 90);
