@@ -1,0 +1,36 @@
+// Definisi antarmuka melalui pola objek (hanya sebagai panduan)
+const HewanInterface = {
+    Hidup: function() {
+        throw new Error("Metode 'hidup()' harus diimplementasikan.");
+    }
+};
+
+// Kelas Ikan yang mengimplementasikan metode bergerak
+class Ikan {
+    hidup() {
+        console.log("Ikan hidup di laut.");
+    }
+}
+
+// Kelas Buaya yang mengimplementasikan metode bergerak
+class Buaya {
+    hidup() {
+        console.log("Buaya hidup di sungai.");
+    }
+}
+// Kelas Harimau yang mengimplementasikan metode bergerak
+class Harimau{
+    hidup(){
+        console.log("Harimau hidup di Hutan.");
+    }
+}
+
+// Penggunaan
+const ikan = new Ikan();
+ikan.hidup(); // Output: Ikan hidup di laut.
+
+const buaya = new Buaya();
+buaya.hidup(); // Output: Buaya hidup di sungai.
+
+const harimau = new Harimau();
+harimau.hidup();//Output: Harimau hidup di hutan.
