@@ -1,0 +1,54 @@
+// Kelas abstrak tidak dapat diinstansiasi secara langsung
+class Hewan {
+    constructor(jenis) {
+        if (this.constructor === Hewan) {
+            throw new Error("Kelas Hewan adalah kelas abstrak dan tidak dapat diinstansiasi.");
+        }
+        this.jenis = jenis;
+    }
+
+    // Metode abstrak
+    bergerak() {
+        throw new Error("Metode 'bergerak()' harus diimplementasikan.");
+    }
+}
+
+// Kelas turunan yang mengimplementasikan metode abstrak
+class Kucing extends Hewan {
+    constructor() {
+        super('Kucing');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} berjalan dengan kaki 4.`);
+    }
+}
+
+class Ayam extends Hewan {
+    constructor() {
+        super('Ayam');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} berjalan dengan kaki 2.`);
+    }
+}
+class Burung extends Hewan {
+    constructor() {
+        super('Burung');
+    }
+
+    bergerak() {
+        console.log(`${this.jenis} Terbang dengan 2 sayap.`);
+    }
+}
+
+// Penggunaan
+const kucing = new Kucing();
+kucing.bergerak(); // Output: Kucing Berjalan dengan kaki4.
+
+const ayam = new Ayam();
+ayam.bergerak(); // Output: Ayam  berjalan dengan kaki 2.
+
+const burung = new Burung();
+burung.bergerak();// Output: Burung terbang dengan 2 sayap
